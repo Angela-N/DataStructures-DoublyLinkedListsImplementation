@@ -33,17 +33,37 @@ public class DoublyLinkedList<T> extends LinkedList<T> {
 		}
 	}
 
-	/**
-	 * Get data stored in tail node of list.
-	 **/
-	public T getLast() {
+	public void iteraterateList()
+	{
+		String s = new String();
+		s = "";
 		// set a LinkedListNode to get the current Node
 		DoublyLinkedListNode<T> currentNode = (DoublyLinkedListNode<T>) head;
 		// As long as there is a node with data after the current Node
 		while (currentNode.getNext() != null) {
 			// shift to set the next node as the current Node
 			currentNode = (DoublyLinkedListNode<T>) currentNode.getNext();
+			s += currentNode.toString();
+			s += "->";
 		}
+		System.out.println(s);
+	}
+	/**
+	 * Get data stored in tail node of list.
+	 **/
+	public T getLast() {
+		String s = new String();
+		s = "";
+		// set a LinkedListNode to get the current Node
+		DoublyLinkedListNode<T> currentNode = (DoublyLinkedListNode<T>) head;
+		// As long as there is a node with data after the current Node
+		while (currentNode.getNext() != null) {
+			// shift to set the next node as the current Node
+			currentNode = (DoublyLinkedListNode<T>) currentNode.getNext();
+			s += currentNode.toString();
+			s += "->";
+		}
+		System.out.println(s);
 		// When there is no node after the current Node return the data in the
 		// current Node
 		return currentNode.getData();

@@ -16,26 +16,29 @@ public class RosterManager {
 		String fileName = "Assignment1Data.txt";
 		String line = null;
 		
-		// string for user input
 		String userInput;
-		Scanner stdin = new Scanner(System.in);
+		Scanner stdin1 = new Scanner(System.in);
 		
 
 		// This function potentially throws an IOException
 		
 		System.out.println("enter a maximum number of students that should be in put");
 		
-		userInput = stdin.nextLine();
+		
 		System.out.println(".....................");
 		
 		askForInput();
+		
 		String userInputSize;
-		userInputSize = stdin.nextLine();
+		userInputSize = stdin1.nextLine();
+		
+		// string for user input
+				//String userInput;
+				Scanner stdin = new Scanner(System.in);
+				userInput = stdin.nextLine();
+		///roster.getClassSize(Integer.parseInt(userInputSize));
 		
 		
-		roster.getClassSize(Integer.parseInt(userInputSize));
-		
-		askForInput();
 		
 		
 		int i = 0;
@@ -68,6 +71,7 @@ public class RosterManager {
 			} catch (IOException ex) {
 				System.out.println("Error reading file '" + fileName + "'");
 			}
+			askForInput();
 		}
 
 	public static void askForInput() {
