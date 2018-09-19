@@ -12,7 +12,7 @@ protected DoublyLinkedList<String> students = new DoublyLinkedList<String>();
 // list to hold the wait listed students
 protected DoublyLinkedList<String> waitlist = new DoublyLinkedList<String>();
 // variable that holds the amount of students allowed to enroll in the class
-public int classSize = 5;
+public int classSize;
 
 	/*
 	 * Constructor for the Roster Program
@@ -28,8 +28,8 @@ public int classSize = 5;
 	 */
 	public void getClassSize(int userInput)
 	{
-		int classSize1;
-		classSize1 = userInput;
+		//int classSize1;
+		classSize = userInput;
 	}
 	
 	/*
@@ -129,8 +129,10 @@ public int classSize = 5;
 		}
 
 		System.out.println("                                              ");
-		System.out.println("The registered list is: " + students.toString());
-		System.out.println("the waitlisted list is: " + waitlist.toString());
+		System.out.println("The sorted registered list is: "  );
+		System.out.println(students.toString());
+		System.out.println("The sorted waitlisted list is: " );
+		System.out.println(waitlist.toString());
 		System.out.println("----------------------------------------------");
 	}
 
@@ -146,7 +148,7 @@ public int classSize = 5;
 		// class
 		if (students.size() < classSize) 
 		{
-			System.out.println("The size is less than numAllowed(5)");
+			System.out.println("The size is less than numAllowed: " + classSize);
 			// if there are no students enrolled
 			if (students.getFirstNode() == null) {
 				System.out.println("This is the first node");
@@ -170,7 +172,7 @@ public int classSize = 5;
 		System.out.println("These are the students registered......");
 		students.iteraterateList();
 		System.out.println("These are the students waitlisted.....");
-		waitlist.iteraterateList();
+		//waitlist.iteraterateList();
 	}
 
 	/**

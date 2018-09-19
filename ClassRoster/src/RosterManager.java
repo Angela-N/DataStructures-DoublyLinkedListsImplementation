@@ -11,37 +11,29 @@ public class RosterManager {
 
 	public static void main(String[] args) {
 		// a new instance of the roster program
-		
-		// string for file input
-		String fileName = "Assignment1Data.txt";
-		String line = null;
-		
-		String userInput;
-		Scanner stdin1 = new Scanner(System.in);
-		
 
-		// This function potentially throws an IOException
-		
-		System.out.println("enter a maximum number of students that should be in put");
-		
-		
+		// method that asks for size of the list
+		askForSize();
+
+		String fileName = "Assignment1Data.txt";
+		// string for file input
+		String line = null;
+		String userInput;
+
 		System.out.println(".....................");
-		
+
 		askForInput();
-		
-		String userInputSize;
-		userInputSize = stdin1.nextLine();
-		
-		// string for user input
-				//String userInput;
-				Scanner stdin = new Scanner(System.in);
-				userInput = stdin.nextLine();
-		///roster.getClassSize(Integer.parseInt(userInputSize));
-		
-		
-		
-		
-		int i = 0;
+
+		Scanner stdin = new Scanner(System.in);
+		userInput = stdin.nextLine();
+
+		// userInput = stdin.next();
+
+		int i = 1;
+		if (userInput.equals("add")) {
+			// update the student list
+			
+
 			try {
 				// FileReader reads text files in the default encoding.
 				FileReader fileReader = new FileReader(fileName);
@@ -51,28 +43,40 @@ public class RosterManager {
 
 				while ((line = bufferedReader.readLine()) != null) {
 					System.out.println("Addition of name : " + i + " " + line);
-
-					if (userInput.equals("add")) {
-						// update the student list
-						roster.updateStudent(line, "add");
-					} else if (userInput.equals("remove")) {
-						// update the student list
-						System.out.println("type name of student you want to remove");
-						roster.removeStudent(userInput);
-					}
+					roster.updateStudent(line, "add");
 					i++;
 				}
-				// System.out.println("size = " + dll.size());
-
-				// Always close files.
 				bufferedReader.close();
 			} catch (FileNotFoundException ex) {
 				System.out.println("Unable to open file '" + fileName + "'");
 			} catch (IOException ex) {
 				System.out.println("Error reading file '" + fileName + "'");
 			}
-			askForInput();
+			// Always close files.
+
 		}
+
+		else if (userInput.equals("remove")) {
+			// update the student list
+			System.out.println("Type name of student you want to remove");
+			roster.removeStudent(userInput);
+		}
+		// System.out.println("size = " + dll.size());
+
+		askForInput();
+	}
+
+	public static void askForSize() {
+		String userInputSize;
+		Scanner stdin1 = new Scanner(System.in);
+
+		// This function potentially throws an IOException
+		System.out.println("Welcome to class Roster :");
+		System.out.println("Enter a maximum number of students that should be in put");
+		userInputSize = stdin1.nextLine();
+		 roster.getClassSize(Integer.parseInt(userInputSize));
+
+	}
 
 	public static void askForInput() {
 		System.out.println("size = " + dll.size());
