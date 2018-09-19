@@ -15,20 +15,30 @@ public class RosterManager {
 		// string for file input
 		String fileName = "Assignment1Data.txt";
 		String line = null;
-		askForInput();
+		
 		// string for user input
 		String userInput;
 		Scanner stdin = new Scanner(System.in);
 		
-		// method that prompts user for input
-		// askForInput();
-		// Try to read a line
+
 		// This function potentially throws an IOException
+		
+		System.out.println("enter a maximum number of students that should be in put");
+		
 		userInput = stdin.nextLine();
-		//System.out.println(".....................");
+		System.out.println(".....................");
+		
+		askForInput();
+		String userInputSize;
+		userInputSize = stdin.nextLine();
+		
+		
+		roster.getClassSize(Integer.parseInt(userInputSize));
+		
+		askForInput();
+		
+		
 		int i = 0;
-		//while (true) {
-			
 			try {
 				// FileReader reads text files in the default encoding.
 				FileReader fileReader = new FileReader(fileName);
@@ -59,13 +69,12 @@ public class RosterManager {
 				System.out.println("Error reading file '" + fileName + "'");
 			}
 		}
-	//}
 
 	public static void askForInput() {
 		System.out.println("size = " + dll.size());
 
 		System.out.println("Welcome to class Roster :");
-		System.out.println("If you want to add a name to the list type 'a',");
-		System.out.println("If you want to delete a name from the list type 'd',");
+		System.out.println("If you want to add a name to the list type 'add',");
+		System.out.println("If you want to delete a name from the list type 'remove',");
 	}
 }

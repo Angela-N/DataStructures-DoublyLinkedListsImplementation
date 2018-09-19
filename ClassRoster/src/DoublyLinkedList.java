@@ -13,7 +13,6 @@ public class DoublyLinkedList<T> extends LinkedList<T> {
 	 */
 	public DoublyLinkedList() {
 		super();
-		// tail = null;
 	}
 
 	/**
@@ -32,7 +31,6 @@ public class DoublyLinkedList<T> extends LinkedList<T> {
 		} else {
 			return null;
 		}
-
 	}
 
 	/**
@@ -86,7 +84,6 @@ public class DoublyLinkedList<T> extends LinkedList<T> {
 			head = firstNode;
 			head.setNext(null);
 		}
-
 	}
 
 	/**
@@ -169,7 +166,6 @@ public class DoublyLinkedList<T> extends LinkedList<T> {
 	/**
 	 * Remove head node
 	 **/
-	// @Override
 	public void deleteFirst() {
 		// if the head isn't null
 		if (head != null){

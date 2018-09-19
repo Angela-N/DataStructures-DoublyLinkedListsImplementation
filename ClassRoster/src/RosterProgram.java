@@ -12,7 +12,7 @@ protected DoublyLinkedList<String> students = new DoublyLinkedList<String>();
 // list to hold the wait listed students
 protected DoublyLinkedList<String> waitlist = new DoublyLinkedList<String>();
 // variable that holds the amount of students allowed to enroll in the class
-protected int classSize = 5;
+public int classSize;
 
 	/*
 	 * Constructor for the Roster Program
@@ -22,6 +22,15 @@ protected int classSize = 5;
 
 	}
 
+	/**
+	 * method that gets the class size from user
+	 * @return
+	 */
+	public void getClassSize(int userInput)
+	{
+		classSize = userInput;
+	}
+	
 	/*
 	 * method to get a string of the enrolled students
 	 */
