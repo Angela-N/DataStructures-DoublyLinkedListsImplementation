@@ -202,14 +202,14 @@ public class RosterProgram
 			if (currentNode.getData().equals(name)) 
 			{
 				if (currentNode == students.getLastNode()) {
+					System.out.println("you have deleted" + students.getLastNode().toString());
 					students.deleteLast();
 				} 
 				else {
 					System.out.println("Ready to remove...");
 					// if so, remove the name by setting the next pointer from
 					// the previous node to the node after the current node
-					students.deletePrevious((DoublyLinkedListNode<String>) currentNode
-							.getNext());
+					students.deletePrevious((DoublyLinkedListNode<String>) currentNode.getNext());
 				}
 				// check the size of the list. If it is less than the allowed
 				// amount, take a student from the waitlisted list

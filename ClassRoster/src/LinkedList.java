@@ -1,3 +1,4 @@
+
 public class LinkedList<T> {
 	// the single instance field which holds the head node
 	protected LinkedListNode<T> head;

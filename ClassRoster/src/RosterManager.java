@@ -45,13 +45,15 @@ public class RosterManager {
 						if (userInput.equals("remove")) 
 						{
 							// update the student list
+							System.out.println("										");
+							System.out.println("										");
 							System.out.println("Type name of student you want to remove");
+							System.out.println("										");
 							userInput = askForInput();
 							roster.removeStudent(userInput);
 							userInput = askForInput();
 						}
 					}	
-					
 					bufferedReader.close();
 				} catch (FileNotFoundException ex) {
 					System.out.println("Unable to open file '" + fileName + "'");
@@ -75,7 +77,7 @@ public class RosterManager {
 
 	public static String askForInput() {
 		System.out.println("Registered Number of Students = " + roster.students.size());
-		System.out.println("Waitlisted Number of Students = " + roster.waitlist.size());
+		//System.out.println("Waitlisted Number of Students = " + roster.waitlist.size());
 		System.out.println("Welcome to class Roster :");
 		System.out.println("If you want to add a name to the list type 'add',");
 		System.out.println("If you want to delete a name from the list type 'remove',");
