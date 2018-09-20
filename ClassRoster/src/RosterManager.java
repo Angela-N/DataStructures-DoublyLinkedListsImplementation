@@ -27,31 +27,43 @@ public class RosterManager {
 		int i = 1;
 
 		while (!userInput.equals("quit")) {
-			userInput = askForInput();
+			//userInput = askForInput();
 			if (userInput.equals("add")) {
 				try {
 					// FileReader reads text files in the default encoding.
 					FileReader fileReader = new FileReader(fileName);
 					// Always wrap FileReader in BufferedReader.
 					BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-					if ((line = bufferedReader.readLine()) != null) {
+					
+					while ((line = bufferedReader.readLine()) != null) 
+					{
 						System.out.println("Addition of name : " + i + " " + line);
 						roster.updateStudent(line, "add");
-					}
-					i++;
+						userInput = askForInput();
+						i++;
+						
+						if (userInput.equals("remove")) {
+							// update the student list
+							System.out.println("Type name of student you want to remove");
+						userInput = askForInput();
+							roster.removeStudent(userInput);
+							userInput = askForInput();}
+					}	
+					;
 					bufferedReader.close();
 				} catch (FileNotFoundException ex) {
 					System.out.println("Unable to open file '" + fileName + "'");
 				} catch (IOException ex) {
 					System.out.println("Error reading file '" + fileName + "'");
 				}
-			} else if (userInput.equals("remove")) {
-				// update the student list
-				System.out.println("Type name of student you want to remove");
-				roster.removeStudent(userInput);
+//			} else if (userInput.equals("remove")) {
+//				// update the student list
+//				System.out.println("Type name of student you want to remove");
+//				userInput = askForInput();
+//				roster.removeStudent(userInput);
+//				userInput = askForInput();
 			}
-			 //userInput = askForInput();
+			 
 		}
 	}
 
