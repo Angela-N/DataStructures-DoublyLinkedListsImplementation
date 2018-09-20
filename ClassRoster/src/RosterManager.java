@@ -22,48 +22,37 @@ public class RosterManager {
 
 		System.out.println(".....................");
 
-		askForInput();
-
-		Scanner stdin = new Scanner(System.in);
-		userInput = stdin.nextLine();
-
-		// userInput = stdin.next();
+		userInput = askForInput();
 
 		int i = 1;
-		if (userInput.equals("add")) {
-			// update the student list
-			
 
-			try {
-				// FileReader reads text files in the default encoding.
-				FileReader fileReader = new FileReader(fileName);
+		while (!userInput.equals("quit")) {
+			userInput = askForInput();
+			if (userInput.equals("add")) {
+				try {
+					// FileReader reads text files in the default encoding.
+					FileReader fileReader = new FileReader(fileName);
+					// Always wrap FileReader in BufferedReader.
+					BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-				// Always wrap FileReader in BufferedReader.
-				BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-				while ((line = bufferedReader.readLine()) != null) {
-					System.out.println("Addition of name : " + i + " " + line);
-					roster.updateStudent(line, "add");
+					if ((line = bufferedReader.readLine()) != null) {
+						System.out.println("Addition of name : " + i + " " + line);
+						roster.updateStudent(line, "add");
+					}
 					i++;
+					bufferedReader.close();
+				} catch (FileNotFoundException ex) {
+					System.out.println("Unable to open file '" + fileName + "'");
+				} catch (IOException ex) {
+					System.out.println("Error reading file '" + fileName + "'");
 				}
-				bufferedReader.close();
-			} catch (FileNotFoundException ex) {
-				System.out.println("Unable to open file '" + fileName + "'");
-			} catch (IOException ex) {
-				System.out.println("Error reading file '" + fileName + "'");
+			} else if (userInput.equals("remove")) {
+				// update the student list
+				System.out.println("Type name of student you want to remove");
+				roster.removeStudent(userInput);
 			}
-			// Always close files.
-
+			 //userInput = askForInput();
 		}
-
-		else if (userInput.equals("remove")) {
-			// update the student list
-			System.out.println("Type name of student you want to remove");
-			roster.removeStudent(userInput);
-		}
-		// System.out.println("size = " + dll.size());
-
-		askForInput();
 	}
 
 	public static void askForSize() {
@@ -74,15 +63,18 @@ public class RosterManager {
 		System.out.println("Welcome to class Roster :");
 		System.out.println("Enter a maximum number of students that should be in put");
 		userInputSize = stdin1.nextLine();
-		 roster.getClassSize(Integer.parseInt(userInputSize));
-
+		roster.getClassSize(Integer.parseInt(userInputSize));
 	}
 
-	public static void askForInput() {
+	public static String askForInput() {
 		System.out.println("size = " + dll.size());
-
 		System.out.println("Welcome to class Roster :");
 		System.out.println("If you want to add a name to the list type 'add',");
 		System.out.println("If you want to delete a name from the list type 'remove',");
+
+		String userInput;
+		Scanner stdin = new Scanner(System.in);
+		return userInput = stdin.nextLine();
+
 	}
 }

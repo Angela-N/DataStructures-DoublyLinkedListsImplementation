@@ -62,10 +62,10 @@ public int classSize;
 		System.out.println(name);
 		System.out.println("**********");
 
-		System.out.println("Compared to the first, I go: "
-				+ name.compareToIgnoreCase(list.getFirst()));
-		System.out.println("Compared to the last, I go: "
-				+ name.compareToIgnoreCase(list.getLast()));
+		//System.out.println("Compared to the first, I go: "
+			//	+ name.compareToIgnoreCase(list.getFirst()));
+		//System.out.println("Compared to the last, I go: "
+				//+ name.compareToIgnoreCase(list.getLast()));
 
 		// if the name needs to be at the start of the list:
 		if (name.compareToIgnoreCase(list.getFirst()) < 0) {
@@ -96,9 +96,7 @@ public int classSize;
 					// if the name goes before the next node
 					if (name.compareToIgnoreCase(currentNode.getNext()
 							.getData()) < 0) {
-						System.out
-								.println("I am in the right position, inserting after the current node which is: "
-										+ currentNode.getData());
+						//System.out.println("I am in the right position, inserting after the current node which is: "+ currentNode.getData());
 						// SORTED!!! Insert at the position after the current
 						// node
 						list.insertAfter(currentNode, name);
@@ -167,7 +165,9 @@ public int classSize;
 		else {
 			// insert the student at the last spot
 			// Does NOT need to be sorted!!!!
+			//sortRoster(waitlist,name);
 			waitlist.insertLast(name);
+			
 		}
 		System.out.println("These are the students registered......");
 		students.iteraterateList();
