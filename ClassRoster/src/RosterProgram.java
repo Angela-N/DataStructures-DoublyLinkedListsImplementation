@@ -7,12 +7,12 @@
  */
 public class RosterProgram 
 {
-// list to hold the enrolled students
-protected DoublyLinkedList<String> students = new DoublyLinkedList<String>();
-// list to hold the wait listed students
-protected DoublyLinkedList<String> waitlist = new DoublyLinkedList<String>();
-// variable that holds the amount of students allowed to enroll in the class
-public int classSize;
+	// list to hold the enrolled students
+	protected DoublyLinkedList<String> students = new DoublyLinkedList<String>();
+	// list to hold the wait listed students
+	protected DoublyLinkedList<String> waitlist = new DoublyLinkedList<String>();
+	// variable that holds the amount of students allowed to enroll in the class
+	public int classSize;
 
 	/*
 	 * Constructor for the Roster Program
@@ -169,9 +169,9 @@ public int classSize;
 			waitlist.insertLast(name);
 			
 		}
-		System.out.println("These are the students registered......");
+		//System.out.println("These are the students registered......");
 		students.iteraterateList();
-		System.out.println("These are the students waitlisted.....");
+		//System.out.println("These are the students waitlisted.....");
 		//waitlist.iteraterateList();
 	}
 
@@ -188,7 +188,7 @@ public int classSize;
 		// if the name exists = true
 		boolean isPresent = false;
 
-		if (students.isEmpty() == false && students.getFirst().equals(name)){
+		if (!students.isEmpty() && students.getFirst().equals(name)){
 			students.deleteFirst();
 			return;
 		}
@@ -196,7 +196,6 @@ public int classSize;
 			waitlist.deleteFirst();
 			return;
 		}
-		
 
 		// check if the name is in the enrolled list
 		while (!exists) {
@@ -231,8 +230,7 @@ public int classSize;
 			}
 			else{
 				currentNode = (DoublyLinkedListNode<String>) currentNode.getNext();
-			}
-			
+			}	
 		}
 
 		// update current node to be the waitlisted first node
@@ -265,9 +263,5 @@ public int classSize;
 				currentNode = (DoublyLinkedListNode<String>) currentNode.getNext();
 			}
 		}
-		System.out.println("These are the students registered......");
-		students.iteraterateList();
-		System.out.println("These are the students waitlisted.....");
-		waitlist.iteraterateList();
 	}
 }
